@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="mt-5">Dashboard</h1>
+
+  <div class="row g-3 video-list">
+
+    <!-- Item loop -->
+    <div *ngFor="let video of videos"
+         class="col-md-4 col-sm-6 video-item mb-2">
+      <div class="item">
+        <mat-card class="example-card">
+          <video controls>
+            <source [src]="video.videoUrl" type="video/mp4">
+            <!--            <source src="movie.ogg" type="video/ogg">-->
+            Your browser does not support the video tag.
+          </video>
+          <mat-card-content>
+            <div class="content-wrap">
+              <div class="avatar">
+                <img [src]="video.thumbnailUrl" [alt]="video.title">
+              </div>
+              <div class="content">
+                <h4>{{video.title | shorten: 30: '...'}}</h4>
+                <p>{{video.description | shorten: 80: '...'}}</p>
+                <div class="chanel-name">{{video.author}}</div>
+                <ul class="list-item">
+                  <li>{{video.views}} views</li>
+                  <li>Upload: {{video.uploadTime}}</li>
+                  <li>{{video.duration}}</li>
+                </ul>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
